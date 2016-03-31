@@ -1,42 +1,36 @@
-#Retrieve files and unzip
-
-    temp <- tempfile()
-    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", temp) 
-    unzip(temp)
-    unlink(temp)
 
 #call packages
     library(plyr)
     library(tidyr)
     library(data.table)
 
-#Read and merge data
+#Read and merge data (UCI HAR Dataset unziped and folder available in working directory)
     #Read list of features
-    features <- read.table("c://UCI HAR Dataset/features.txt")
+    features <- read.table("UCI HAR Dataset/features.txt")
     #Read test information
         #Read test subject information
-        test_subject <- read.table("c://UCI HAR Dataset/test/subject_test.txt")
+        test_subject <- read.table("UCI HAR Dataset/test/subject_test.txt")
         #Read activity information for test
-        test_activity <- read.table("c://UCI HAR Dataset/test/y_test.txt")
+        test_activity <- read.table("UCI HAR Dataset/test/y_test.txt")
         #merge subject and activity info and label columns for test 
         test_info <- cbind(test_subject, test_activity)
         colnames(test_info) <- c("Subject", "Activity")
         #read variables for test, labels based on features file and merge 
-        test_var <- read.table("c://UCI HAR Dataset/test/X_test.txt")
+        test_var <- read.table("UCI HAR Dataset/test/X_test.txt")
         var_names <- features[,2]
         colnames(test_var) <- var_names
         test_info <- cbind(test_info, test_var)
        
     #Read training information
         #Read training subject information
-        train_subject <- read.table("c://UCI HAR Dataset/train/subject_train.txt")
+        train_subject <- read.table("UCI HAR Dataset/train/subject_train.txt")
         #Read activity information for training
-        train_activity <- read.table("c://UCI HAR Dataset/train/y_train.txt")
+        train_activity <- read.table("UCI HAR Dataset/train/y_train.txt")
         #merge subject and activity info and label columns for training 
         train_info <- cbind(train_subject, train_activity)
         colnames(train_info) <- c("Subject", "Activity")
         #read variables for training, labels based on features file and merge 
-        train_var <- read.table("c://UCI HAR Dataset/train/X_train.txt")
+        train_var <- read.table("UCI HAR Dataset/train/X_train.txt")
         var_names <- features[,2]
         colnames(train_var) <- var_names
         train_info <- cbind(train_info, train_var)

@@ -50,7 +50,7 @@
     mean_info <- ddply(selected, .(Subject, Activity), colwise(mean))
 
 #Output mean dataset to file    
-    write.table(mean_info, "Mean summary")
+    write.table(mean_info, "Mean summary",row.names=FALSE)
 
 
         

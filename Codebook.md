@@ -1,10 +1,13 @@
 #Code Book
 
-Column1
+##Column1
+
 Subject: An identifier of the subject who carried out the experiment
 
-Column2
+##Column2
+
 Activity: Identifies one of six activities the subjects performed
+
     WALKING 
     WALKING_UPSTAIRS 
     WALKING_DOWNSTAIRS 
@@ -12,9 +15,10 @@ Activity: Identifies one of six activities the subjects performed
     STANDING 
     LAYING
     
-Columns 3 to 68
+##Columns 3 to 68
 Data in these columns is the mean of the measurements per subject and activity, for each of the mean and standard variables. 
 The name of each of this columns identifies the variables as follows:
+
     "t" for time or "f" for Fast Fourier Transform
     "BodyAcc" for body linear acceleration or "GravityAcc" for gravity acceleration
     "Gyro" indicates signal from the gyroscope
